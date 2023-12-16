@@ -11,6 +11,11 @@
     "node": ">= 20.0.0",
     "yarn": ">= 1.22.0"
   },
+  "scripts": {
+    "build": "esbuild ./src/index.ts --bundle --minify --sourcemap --target=es2020 --platform=browser --outfile=./dist/index.js",
+    "lint": "eslint ./src/**/*.ts",
+    "lint:fix": "eslint ./src/**/*.ts --fix"
+  },
   "dependencies": {
     "esbuild": "^0.19.9",
     "eslint": "^8.0.1",
