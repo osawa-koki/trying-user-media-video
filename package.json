@@ -12,6 +12,7 @@
     "yarn": ">= 1.22.0"
   },
   "dependencies": {
+    "esbuild": "^0.19.9",
     "eslint": "^8.0.1",
     "typescript": "^5.3.3"
   },
