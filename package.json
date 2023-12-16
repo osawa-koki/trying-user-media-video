@@ -14,7 +14,8 @@
   "scripts": {
     "build": "esbuild ./src/index.ts --bundle --minify --sourcemap --target=es2020 --platform=browser --outfile=./public/index.js",
     "lint": "eslint ./src/**/*.ts",
-    "lint:fix": "eslint ./src/**/*.ts --fix"
+    "lint:fix": "eslint ./src/**/*.ts --fix",
+    "server": "http-server ./public/ -p 8000"
   },
   "dependencies": {
     "esbuild": "^0.19.9",
