@@ -3,12 +3,10 @@
 const button = document.getElementById('button')! as HTMLButtonElement
 const video = document.getElementById('video')! as HTMLVideoElement
 
-let isCameraOn = false
-
 const chunks: Blob[] = []
 let mediaRecorder: MediaRecorder | null = null
 
-const cameraInit = (): void => {
+const startCamera = (): void => {
   navigator.mediaDevices.getUserMedia({
     audio: false,
     video: {
@@ -31,7 +29,7 @@ const cameraInit = (): void => {
       mediaRecorder.start(100)
 
       mediaRecorder.addEventListener('stop', () => {
-        console.log('stop')
+        mediaRecorder = null
       })
     })
     .catch((err) => {
@@ -39,13 +37,16 @@ const cameraInit = (): void => {
     })
 }
 
-button.addEventListener('click', () => {
-  if (isCameraOn) {
-    video.pause()
-    video.srcObject = null
-    isCameraOn = false
+const endCamera = (): void => {
+  video.pause()
+  video.srcObject = null
+  mediaRecorder?.stop()
+}
 
-    mediaRecorder?.stop()
+button.addEventListener('click', () => {
+  if (mediaRecorder != null) {
+    button.value = 'Start'
+    endCamera()
 
     const blob = new Blob(chunks, { type: 'video/webm' })
     const url = window.URL.createObjectURL(blob)
@@ -53,9 +54,10 @@ button.addEventListener('click', () => {
     a.href = url
     a.download = 'video.webm'
     a.click()
+    chunks.length = 0
   } else {
-    cameraInit()
-    isCameraOn = true
+    button.value = 'Stop'
+    startCamera()
   }
 })
 
