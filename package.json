@@ -12,7 +12,7 @@
     "yarn": ">= 1.22.0"
   },
   "scripts": {
-    "build": "esbuild ./src/index.ts --bundle --minify --sourcemap --target=es2020 --platform=browser --outfile=./dist/index.js",
+    "build": "esbuild ./src/index.ts --bundle --minify --sourcemap --target=es2020 --platform=browser --outfile=./public/index.js",
     "lint": "eslint ./src/**/*.ts",
     "lint:fix": "eslint ./src/**/*.ts --fix"
   },
