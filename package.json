@@ -1,0 +1,16 @@
+{
+  "name": "trying-user-media-video",
+  "version": "1.0.0",
+  "description": "🐝🐝🐝 ユーザメディアのビデオを試してみる！",
+  "main": "./src/index.ts",
+  "repository": "https://github.com/osawa-koki/trying-user-media-video.git",
+  "author": "osawa-koki <koki@osawa.dev>",
+  "license": "Apache-2.0",
+  "private": false,
+  "engines": {
+    "node": ">= 20.0.0",
+    "yarn": ">= 1.22.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
