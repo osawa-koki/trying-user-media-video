@@ -41,6 +41,7 @@ const cameraInit = (): void => {
 
 button.addEventListener('click', () => {
   if (isCameraOn) {
+    button.value = 'Start'
     video.pause()
     video.srcObject = null
     isCameraOn = false
@@ -53,7 +54,9 @@ button.addEventListener('click', () => {
     a.href = url
     a.download = 'video.webm'
     a.click()
+    chunks.length = 0
   } else {
+    button.value = 'Stop'
     cameraInit()
     isCameraOn = true
   }
